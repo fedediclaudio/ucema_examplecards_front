@@ -1,5 +1,52 @@
 <main>
-    <app-info [owner]="owner"></app-info>
-    <app-cards [cards]="owner.cards"></app-cards>
-    
-  </main>
+  <app-info [owner]="owner"></app-info>
+  <app-cards [cards]="owner.cards"></app-cards>
+
+  <div class="text-center">
+    <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Agregar Nueva Tarjeta
+    </button>
+  </div>
+  
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Nueva Tarjeta</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="nameInput" class="form-label">Nombre</label>
+              <input type="text" class="form-control" id="nameInput" placeholder="Tarjeta numero uno" required>
+            </div>
+            <div class="mb-3">
+              <label for="typeInput" class="form-label">Tipo</label>
+              <select class="form-select" aria-label="Default select example" id="typeInput" required>
+                <option value="Debito">Debito</option>
+                <option value="Credito">Credito</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="bankInput" class="form-label">Banco</label>
+              <select class="form-select" aria-label="Default select example" id="bankInput" required>
+                <option *ngFor="let bank of banks" value="bank">{{bank.name}}</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="expireDateInput" class="form-label">Fecha de Vencimiento</label>
+              <input type="text" class="form-control" id="expireDateInput" placeholder="XX/XX" required>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-outline-success">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
