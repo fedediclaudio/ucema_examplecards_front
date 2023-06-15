@@ -20,24 +20,24 @@
           <form>
             <div class="mb-3">
               <label for="nameInput" class="form-label">Nombre</label>
-              <input type="text" class="form-control" id="nameInput" placeholder="Tarjeta numero uno" required>
+              <input type="text" class="form-control" id="nameInput" placeholder="Tarjeta numero uno" [formControl]="name" required>
             </div>
             <div class="mb-3">
               <label for="typeInput" class="form-label">Tipo</label>
-              <select class="form-select" aria-label="Default select example" id="typeInput" required>
+              <select class="form-select" aria-label="Default select example" id="typeInput" [formControl]="type" required>
                 <option value="Debito">Debito</option>
                 <option value="Credito">Credito</option>
               </select>
             </div>
             <div class="mb-3">
               <label for="bankInput" class="form-label">Banco</label>
-              <select class="form-select" aria-label="Default select example" id="bankInput" required>
+              <select class="form-select" aria-label="Default select example" id="bankInput" [formControl]="bank" required>
                 <option *ngFor="let bank of banks" value="bank">{{bank.name}}</option>
               </select>
             </div>
             <div class="mb-3">
               <label for="expireDateInput" class="form-label">Fecha de Vencimiento</label>
-              <input type="text" class="form-control" id="expireDateInput" placeholder="XX/XX" required>
+              <input type="text" class="form-control" id="expireDateInput" placeholder="XX/XX" [formControl]="expireDate" required>
             </div>
           </form>
         </div>

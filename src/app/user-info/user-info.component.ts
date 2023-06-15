@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Bank } from 'src/model/Bank';
 import { Card } from 'src/model/Card';
 import { Owner } from 'src/model/Owner';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-user-info',
@@ -12,6 +13,11 @@ export class UserInfoComponent {
 
   banks: Bank[];
   owner: Owner;
+
+  name= new FormControl('');
+  type = new FormControl('');
+  bank = new FormControl('');
+  expireDate = new FormControl('');
 
   constructor() {
     let santander: Bank = new Bank("Santander", "Bartolomé Mitre 480")
