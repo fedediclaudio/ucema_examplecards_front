@@ -17,34 +17,40 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form>
+          <form [formGroup]="newBankForm" (ngSubmit)="onSubmit()">
             <div class="mb-3">
               <label for="nameInput" class="form-label">Nombre</label>
-              <input type="text" class="form-control" id="nameInput" placeholder="Tarjeta numero uno" [formControl]="name" required>
+              <input type="text" class="form-control" id="nameInput" placeholder="Tarjeta numero uno" formControlName="name" required>
+            </div>
+            <div class="mb-3">
+              <label for="numberInput" class="form-label">Numero</label>
+              <input type="text" class="form-control" id="numberInput" placeholder="0000 0000 0000 0000" formControlName="number" required>
             </div>
             <div class="mb-3">
               <label for="typeInput" class="form-label">Tipo</label>
-              <select class="form-select" aria-label="Default select example" id="typeInput" [formControl]="type" required>
+              <select class="form-select" aria-label="Default select example" id="typeInput" formControlName="type" required>
                 <option value="Debito">Debito</option>
                 <option value="Credito">Credito</option>
               </select>
             </div>
             <div class="mb-3">
               <label for="bankInput" class="form-label">Banco</label>
-              <select class="form-select" aria-label="Default select example" id="bankInput" [formControl]="bank" required>
-                <option *ngFor="let bank of banks" value="bank">{{bank.name}}</option>
+              <select class="form-select" aria-label="Default select example" id="bankInput" formControlName="bank" required>
+                <option *ngFor="let bank of banks" [ngValue]="bank">{{bank.name}}</option>
               </select>
             </div>
             <div class="mb-3">
               <label for="expireDateInput" class="form-label">Fecha de Vencimiento</label>
-              <input type="text" class="form-control" id="expireDateInput" placeholder="XX/XX" [formControl]="expireDate" required>
+              <input type="text" class="form-control" id="expireDateInput" placeholder="XX/XX" formControlName="expireDate" required>
+            </div>
+            <p></p>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-outline-success" data-bs-dismiss="modal" [disabled]="!newBankForm.valid">Save changes</button>
             </div>
           </form>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-outline-success">Save changes</button>
-        </div>
+        
       </div>
     </div>
   </div>
