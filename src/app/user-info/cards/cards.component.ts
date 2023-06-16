@@ -8,10 +8,16 @@ import { Card } from 'src/model/Card';
 })
 export class CardsComponent {
 
-  @Input() cards!: Card[]
+  @Input() cards!: Card[];
+
+  search: string = '';
 
   constructor() {
 
+  }
+
+  filterCards() {
+    console.log(this.search);
   }
 
 }

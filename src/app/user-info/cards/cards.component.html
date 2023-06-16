@@ -1,9 +1,9 @@
 <h5 class="fw-normal mb-3">Tarjetas registradas:</h5>
-    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
-      
-      <ng-container *ngFor="let c of cards">
-        <app-card-info [card]="c"></app-card-info>
-      </ng-container>
+<input type="text" class="form-control mb-3" placeholder="Buscar tarjetas a traves de su nombre" [(ngModel)]="search" (ngModelChange)="filterCards()">
+<div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
 
+  <ng-container *ngFor="let c of cards">
+    <app-card-info *ngIf="c.name.startsWith(search)" [card]="c"></app-card-info>
+  </ng-container>
 
 </div>

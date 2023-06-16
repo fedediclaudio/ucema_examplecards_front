@@ -8,7 +8,7 @@ import { UserInfoComponent } from './user-info/user-info.component';
 import { InfoComponent } from './user-info/info/info.component';
 import { CardsComponent } from './user-info/cards/cards.component';
 import { CardInfoComponent } from './user-info/cards/card-info/card-info.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,7 +22,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
