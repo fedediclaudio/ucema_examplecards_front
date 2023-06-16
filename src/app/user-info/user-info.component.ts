@@ -14,7 +14,7 @@ export class UserInfoComponent {
   banks: Bank[];
   owner: Owner;
 
-  newBankForm = new FormGroup({
+  newCardForm = new FormGroup({
     name:  new FormControl(),
     number: new FormControl(),
     type: new FormControl(),
@@ -39,11 +39,11 @@ export class UserInfoComponent {
   }
 
   onSubmit() {
-    let name = this.newBankForm.get('name')?.value
-    let number = this.newBankForm.get('number')?.value
-    let type = this.newBankForm.get('type')?.value
-    let bank = this.newBankForm.get('bank')?.value
-    let expireDate = this.newBankForm.get('expireDate')?.value
+    let name = this.newCardForm.get('name')?.value
+    let number = this.newCardForm.get('number')?.value
+    let type = this.newCardForm.get('type')?.value
+    let bank = this.newCardForm.get('bank')?.value
+    let expireDate = this.newCardForm.get('expireDate')?.value
     console.log(bank);
 
     let card: Card = new Card(name, number, type, bank, expireDate);
