@@ -15,6 +15,7 @@ export class UserInfoComponent {
   owner: Owner;
 
   name= new FormControl('');
+  number = new FormControl('');
   type = new FormControl('');
   bank = new FormControl('');
   expireDate = new FormControl('');
