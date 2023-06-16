@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Bank } from 'src/model/Bank';
 import { Card } from 'src/model/Card';
 import { Owner } from 'src/model/Owner';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-user-info',
@@ -14,12 +14,12 @@ export class UserInfoComponent {
   banks: Bank[];
   owner: Owner;
 
-  newBankForm = new FormGroup({
-    name:  new FormControl(),
-    number: new FormControl(),
-    type: new FormControl(),
-    bank: new FormControl(),
-    expireDate: new FormControl()
+  newCardForm = new FormGroup({
+    name:  new FormControl('', [Validators.required, Validators.maxLength(20)]),
+    number: new FormControl('', [Validators.required, Validators.pattern("^\\d{16}$")]),
+    type: new FormControl('', [Validators.required]),
+    bank: new FormControl(new Bank('',''), [Validators.required]),
+    expireDate: new FormControl('', [Validators.required, Validators.pattern('^(0[1-9]|1[0-2])\\/\\d{2}$')])
   })
   
 
@@ -38,17 +38,24 @@ export class UserInfoComponent {
     this.owner.addCard(card3);
   }
 
-  onSubmit() {
-    let name = this.newBankForm.get('name')?.value
-    let number = this.newBankForm.get('number')?.value
-    let type = this.newBankForm.get('type')?.value
-    let bank = this.newBankForm.get('bank')?.value
-    let expireDate = this.newBankForm.get('expireDate')?.value
-    console.log(bank);
+  onSubmit() : void {
+    let name = this.newCardForm.value.name!
+    let number = this.newCardForm.value.number!
+    let type = this.newCardForm.value.type!
+    let bank = this.newCardForm.value.bank!
+    let expireDate = this.newCardForm.value.expireDate!
 
     let card: Card = new Card(name, number, type, bank, expireDate);
 
     this.owner.addCard(card);
+
+    this.newCardForm.reset();
   }
+
+  get name() : FormControl { return this.newCardForm.controls['name'] }
+  get number() : FormControl { return this.newCardForm.controls['number'] }
+  get type() : FormControl { return this.newCardForm.controls['type']; }
+  get bank() : FormControl { return this.newCardForm.controls['bank']; }
+  get expireDate () : FormControl { return this.newCardForm.controls['expireDate']; }
 
 }
