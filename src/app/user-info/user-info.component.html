@@ -17,7 +17,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form [formGroup]="newBankForm" (ngSubmit)="onSubmit()">
+          <form [formGroup]="newCardForm" (ngSubmit)="onSubmit()">
             <div class="mb-3">
               <label for="nameInput" class="form-label">Nombre</label>
               <input type="text" class="form-control" id="nameInput" placeholder="Tarjeta numero uno" formControlName="name" required>
@@ -46,7 +46,7 @@
             <p></p>
             <div class="modal-footer">
               <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-outline-success" data-bs-dismiss="modal" [disabled]="!newBankForm.valid">Save changes</button>
+              <button type="submit" class="btn btn-outline-success" data-bs-dismiss="modal" [disabled]="!newCardForm.valid">Save changes</button>
             </div>
           </form>
         </div>
