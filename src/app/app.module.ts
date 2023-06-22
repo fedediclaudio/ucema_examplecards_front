@@ -14,6 +14,8 @@ import { UserPurchasesComponent } from './user-purchases/user-purchases.componen
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { SectionAComponent } from './user-purchases/section-a/section-a.component';
+import { SectionBComponent } from './user-purchases/section-b/section-b.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { NotFoundComponent } from './not-found/not-found.component';
     UserPurchasesComponent,
     HomeComponent,
     ContactComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    SectionAComponent,
+    SectionBComponent
   ],
   imports: [
     BrowserModule,
