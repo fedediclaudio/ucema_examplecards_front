@@ -10,6 +10,13 @@ import { CardsComponent } from './user-info/cards/cards.component';
 import { CardInfoComponent } from './user-info/cards/card-info/card-info.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { UserPurchasesComponent } from './user-purchases/user-purchases.component';
+import { HomeComponent } from './home/home.component';
+import { ContactComponent } from './contact/contact.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { SectionAComponent } from './user-purchases/section-a/section-a.component';
+import { SectionBComponent } from './user-purchases/section-b/section-b.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -19,13 +26,21 @@ import { HttpClientModule } from '@angular/common/http';
     UserInfoComponent,
     InfoComponent,
     CardsComponent,
-    CardInfoComponent
+    CardInfoComponent,
+    UserPurchasesComponent,
+    HomeComponent,
+    ContactComponent,
+    NotFoundComponent,
+    SectionAComponent,
+    SectionBComponent
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
     FormsModule,
+    AppRoutingModule,
     HttpClientModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
