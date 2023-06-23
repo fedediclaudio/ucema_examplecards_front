@@ -1,6 +1,9 @@
 export class Bank {
-    name: string
-    address: string
+
+    id?: number
+    name?: string
+    address?: string
+    totalSpent?: number
 
     constructor(name:string, address:string) {
         this.name = name

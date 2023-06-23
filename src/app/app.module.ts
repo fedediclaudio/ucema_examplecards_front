@@ -2,21 +2,22 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { UserInfoComponent } from './user-info/user-info.component';
-import { InfoComponent } from './user-info/info/info.component';
-import { CardsComponent } from './user-info/cards/cards.component';
-import { CardInfoComponent } from './user-info/cards/card-info/card-info.component';
+import { HeaderComponent } from './componentes/header/header.component';
+import { FooterComponent } from './componentes/footer/footer.component';
+import { UserInfoComponent } from './componentes/user-info/user-info.component';
+import { InfoComponent } from './componentes/user-info/info/info.component';
+import { CardsComponent } from './componentes/user-info/cards/cards.component';
+import { CardInfoComponent } from './componentes/user-info/cards/card-info/card-info.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { UserPurchasesComponent } from './user-purchases/user-purchases.component';
-import { HomeComponent } from './home/home.component';
-import { ContactComponent } from './contact/contact.component';
-import { NotFoundComponent } from './not-found/not-found.component';
-import { SectionAComponent } from './user-purchases/section-a/section-a.component';
-import { SectionBComponent } from './user-purchases/section-b/section-b.component';
+import { UserPurchasesComponent } from './componentes/user-purchases/user-purchases.component';
+import { HomeComponent } from './componentes/home/home.component';
+import { ContactComponent } from './componentes/contact/contact.component';
+import { NotFoundComponent } from './componentes/not-found/not-found.component';
+import { SectionAComponent } from './componentes/user-purchases/section-a/section-a.component';
+import { SectionBComponent } from './componentes/user-purchases/section-b/section-b.component';
 import { AppRoutingModule } from './app-routing.module';
+import { BankListComponent } from './componentes/bank-list/bank-list.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { AppRoutingModule } from './app-routing.module';
     ContactComponent,
     NotFoundComponent,
     SectionAComponent,
-    SectionBComponent
+    SectionBComponent,
+    BankListComponent
   ],
   imports: [
     BrowserModule,

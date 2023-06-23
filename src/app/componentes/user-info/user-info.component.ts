@@ -3,8 +3,8 @@ import { Bank } from 'src/app/model/Bank';
 import { Card } from 'src/app/model/Card';
 import { Owner } from 'src/app/model/Owner';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { OwnerService } from '../services/owner.service';
-import { BankService } from '../services/bank.service';
+import { OwnerService } from '../../services/owner.service';
+import { BankService } from '../../services/bank.service';
 
 @Component({
   selector: 'app-user-info',
@@ -30,7 +30,7 @@ export class UserInfoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.bankService.getBanks().subscribe((data => this.banks = data))
+    // this.bankService.getAllBanks().subscribe((data => this.banks = data))
     this.owner = this.ownerService.getOwner()
   }
 
