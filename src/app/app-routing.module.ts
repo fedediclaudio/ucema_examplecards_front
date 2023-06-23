@@ -8,6 +8,7 @@ import { ContactComponent } from './contact/contact.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { SectionAComponent } from './user-purchases/section-a/section-a.component';
 import { SectionBComponent } from './user-purchases/section-b/section-b.component';
+import { CardDetailComponent } from './card-detail/card-detail.component';
 
 const routes : Routes = [
   {path: '', component: HomeComponent},
@@ -18,6 +19,7 @@ const routes : Routes = [
       {path: 'section-b', component: SectionBComponent}
     ] },
   {path: 'contact', component: ContactComponent},
+  {path: 'card-detail/:id', component: CardDetailComponent},
   {path: '**', component: NotFoundComponent }
 ]
 

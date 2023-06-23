@@ -16,6 +16,7 @@ import { ContactComponent } from './contact/contact.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { SectionAComponent } from './user-purchases/section-a/section-a.component';
 import { SectionBComponent } from './user-purchases/section-b/section-b.component';
+import { CardDetailComponent } from './card-detail/card-detail.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { SectionBComponent } from './user-purchases/section-b/section-b.componen
     ContactComponent,
     NotFoundComponent,
     SectionAComponent,
-    SectionBComponent
+    SectionBComponent,
+    CardDetailComponent
   ],
   imports: [
     BrowserModule,
