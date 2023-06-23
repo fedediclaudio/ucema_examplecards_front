@@ -30,7 +30,7 @@ export class UserInfoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.banks = this.bankService.getBanks()
+    this.bankService.getBanks().subscribe((data => this.banks = data))
     this.owner = this.ownerService.getOwner()
   }
 

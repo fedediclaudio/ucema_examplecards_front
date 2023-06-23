@@ -9,6 +9,7 @@ import { InfoComponent } from './user-info/info/info.component';
 import { CardsComponent } from './user-info/cards/cards.component';
 import { CardInfoComponent } from './user-info/cards/card-info/card-info.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     ReactiveFormsModule,
     FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Bank } from '../model/Bank';
+import { Observable, of } from 'rxjs';
+import { ApiService } from './api.service';
 
 @Injectable({
   providedIn: 'root'
@@ -8,16 +10,11 @@ export class BankService {
 
   banks: Bank[] = []
 
-  constructor() {
-    let santander: Bank = new Bank("Santander", "Bartolomé Mitre 480")
-    let nacion: Bank = new Bank("Nacion", "Bartolomé Mitre 480")
-    let ciudad: Bank = new Bank("Ciudad", "Av. Cabildo 3061")
-    this.banks = [];
-    this.banks.push(santander, nacion, ciudad);
+  constructor(private api:ApiService) {
    }
 
-   getBanks(): Bank[] {
-    return this.banks
+   getBanks(): Observable<Bank[]> {
+    return this.api.getAllBanks();
    }
 
    getBankByName(name: string): Bank | undefined {
