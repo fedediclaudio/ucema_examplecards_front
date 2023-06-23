@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Owner } from 'src/model/Owner';
+import { Owner } from 'src/app/model/Owner';
 
 @Component({
   selector: 'app-info',
