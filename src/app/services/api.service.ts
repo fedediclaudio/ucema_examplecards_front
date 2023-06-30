@@ -4,6 +4,7 @@ import { Observable, of } from 'rxjs';
 import { Bank } from '../model/Bank';
 import { ResponseLoginDTO } from '../dto/ResponseLoginDTO';
 import { User } from '../model/User';
+import { Card } from '../model/Card';
 
 @Injectable({
   providedIn: 'root'
@@ -18,13 +19,16 @@ export class ApiService {
     return localStorage.getItem('token') || null
   }
 
+  getAuthHeader(): object {
+    return {headers: { 'Authorization': 'Bearer ' + this.getToken()} } 
+  }
+
   login(username: string, password: string): Observable<ResponseLoginDTO> {
     return this.http.post<ResponseLoginDTO>(this._url + 'auth/login', {username: username, password: password})
   }
 
   getAllBanks(): Observable<Bank[]> {
-    const headers = { 'Authorization': 'Bearer ' + this.getToken()}
-    return this.http.get<Bank[]>(this._url + 'bank', {headers})
+    return this.http.get<Bank[]>(this._url + 'bank', this.getAuthHeader())
   }
 
   getBankByName(name: string): Bank | undefined {
@@ -32,16 +36,19 @@ export class ApiService {
   }
 
   createBank(newBank: Bank): Observable<Bank> {
-    return this.http.post(this._url + 'bank', newBank)
+    return this.http.post(this._url + 'bank', newBank, this.getAuthHeader())
   }
 
   deleteBank(bank: Bank): Observable<any> {
-    return this.http.delete(this._url + 'bank/' + bank.id)
+    return this.http.delete(this._url + 'bank/' + bank.id, this.getAuthHeader())
   }
 
   getUserInfo(): Observable<User> {
-    const headers = { 'Authorization': 'Bearer ' + this.getToken()}
-    return this.http.get<User>(this._url + 'user', {headers})
+    return this.http.get<User>(this._url + 'user', this.getAuthHeader())
+  }
+
+  getCardsOfUser(): Observable<Card[]> {
+    return this.http.get<Bank[]>(this._url + "card" ,this.getAuthHeader())
   }
 
 }

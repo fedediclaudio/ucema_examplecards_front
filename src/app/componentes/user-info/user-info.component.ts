@@ -17,7 +17,6 @@ export class UserInfoComponent implements OnInit {
 
   banks!: Bank[]
   user!: User
-  cards: Card[] = [] 
 
   newCardForm = new FormGroup({
     name:  new FormControl('', [Validators.required, Validators.maxLength(20)]),
@@ -36,7 +35,6 @@ export class UserInfoComponent implements OnInit {
     this.userService.getUserInfo().subscribe(
       (data: User) => {
         this.user = data
-        this.cards = data.cards || []
       }
     )
   }

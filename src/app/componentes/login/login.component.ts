@@ -19,13 +19,8 @@ export class LoginComponent {
 
   login(): void {
     const val = this.formLogin.value;
-    this.loginService.login(val.username, val.password).subscribe(
-      (jwt) => {
-        this.formLogin.reset()
-        this.router.navigateByUrl("")
-      }
-    )
-    
+    this.loginService.login(val.username, val.password)
+    this.formLogin.reset()
   }
 
 

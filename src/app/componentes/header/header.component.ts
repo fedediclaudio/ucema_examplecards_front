@@ -10,21 +10,9 @@ import { Location } from '@angular/common';
 })
 export class HeaderComponent implements OnInit{
 
-  isLoggedIn:boolean = false;
-
-  constructor(private loginService:LoginService) {}
+  constructor() {}
 
   ngOnInit(): void {
-    this.loginService.isUserLogin().subscribe(
-      (res) => {
-        this.isLoggedIn = res
-      }
-    )
-  }
-
-  logout() {
-    this.loginService.logout()
-    this.isLoggedIn = false;
   }
 
 
