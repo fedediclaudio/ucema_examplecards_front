@@ -18,6 +18,7 @@ import { SectionAComponent } from './componentes/user-purchases/section-a/sectio
 import { SectionBComponent } from './componentes/user-purchases/section-b/section-b.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BankListComponent } from './componentes/bank-list/bank-list.component';
+import { LoginComponent } from './componentes/login/login.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { BankListComponent } from './componentes/bank-list/bank-list.component';
     NotFoundComponent,
     SectionAComponent,
     SectionBComponent,
-    BankListComponent
+    BankListComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

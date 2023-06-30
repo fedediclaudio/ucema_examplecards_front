@@ -9,9 +9,11 @@ import { NotFoundComponent } from './componentes/not-found/not-found.component';
 import { SectionAComponent } from './componentes/user-purchases/section-a/section-a.component';
 import { SectionBComponent } from './componentes/user-purchases/section-b/section-b.component';
 import { BankListComponent } from './componentes/bank-list/bank-list.component';
+import { LoginComponent } from './componentes/login/login.component';
 
 const routes : Routes = [
   {path: '', component: HomeComponent},
+  {path: 'login', component: LoginComponent},
   {path: 'info', component: UserInfoComponent},
   {path: 'purchases', component: UserPurchasesComponent,
     children: [

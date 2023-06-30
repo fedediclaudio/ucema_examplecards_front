@@ -1,18 +1,20 @@
 import { Bank } from "./Bank";
 
 export class Card {
-    name: string;
-    number: string;
-    type: string;
-    bank: Bank;
-    expiredDate: string;
+    id?: number
+    name?: string
+    number?: string
+    expiryDate?: string
+    totalSpent?: number
+    bank?: Bank
+    
   
-    constructor(name: string, number: string, type: string, bank: Bank, expiredDate: string) {
+    constructor(name: string, number: string,   expiryDate: string, totalSprent: number, bank: Bank) {
       this.name = name;
       this.number = number;
-      this.type = type;
       this.bank = bank;
-      this.expiredDate = expiredDate;
+      this.totalSpent = totalSprent;
+      this.expiryDate = expiryDate;
     }
 
   }

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Owner } from 'src/app/model/Owner';
+import { User } from 'src/app/model/User';
 
 @Component({
   selector: 'app-info',
@@ -8,18 +8,13 @@ import { Owner } from 'src/app/model/Owner';
 })
 export class InfoComponent implements OnInit {
 
-  @Input() owner!: Owner;
+  @Input() user!: User;
   habilitado!: boolean
 
   constructor() {
     
   }
   ngOnInit(): void {
-    if(this.owner.age > 18) {
-      this.habilitado = false;
-    } else {
-      this.habilitado = true;
-    }
   }
 
 }

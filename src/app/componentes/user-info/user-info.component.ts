@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Bank } from 'src/app/model/Bank';
 import { Card } from 'src/app/model/Card';
-import { Owner } from 'src/app/model/Owner';
+import { User } from 'src/app/model/User';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { OwnerService } from '../../services/owner.service';
+import { UserService } from '../../services/user.service';
 import { BankService } from '../../services/bank.service';
+import { DebitCard } from 'src/app/model/DebitCard';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-user-info',
@@ -14,7 +16,8 @@ import { BankService } from '../../services/bank.service';
 export class UserInfoComponent implements OnInit {
 
   banks!: Bank[]
-  owner!: Owner
+  user!: User
+  cards: Card[] = [] 
 
   newCardForm = new FormGroup({
     name:  new FormControl('', [Validators.required, Validators.maxLength(20)]),
@@ -25,13 +28,17 @@ export class UserInfoComponent implements OnInit {
   })
   
 
-  constructor(private ownerService:OwnerService, private bankService: BankService) {
+  constructor(private userService:UserService, private loginService: LoginService,  private bankService: BankService) {
     
   }
 
   ngOnInit(): void {
-    // this.bankService.getAllBanks().subscribe((data => this.banks = data))
-    this.owner = this.ownerService.getOwner()
+    this.userService.getUserInfo().subscribe(
+      (data: User) => {
+        this.user = data
+        this.cards = data.cards || []
+      }
+    )
   }
 
   onSubmit() : void {
@@ -41,9 +48,9 @@ export class UserInfoComponent implements OnInit {
     let bank = this.newCardForm.value.bank!
     let expireDate = this.newCardForm.value.expireDate!
 
-    let card: Card = new Card(name, number, type, bank, expireDate);
+    let card: Card = new DebitCard(name, number, expireDate, 0, bank, 123)
 
-    this.owner.addCard(card);
+    this.user.addCard(card);
 
     this.newCardForm.reset();
   }

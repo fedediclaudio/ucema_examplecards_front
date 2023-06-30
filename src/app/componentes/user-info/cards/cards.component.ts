@@ -8,11 +8,12 @@ import { Card } from 'src/app/model/Card';
 })
 export class CardsComponent {
 
-  @Input() cards!: Card[];
+  @Input() cards!: Card[]; 
 
   search: string = '';
 
   constructor() {
+    
 
   }
 
