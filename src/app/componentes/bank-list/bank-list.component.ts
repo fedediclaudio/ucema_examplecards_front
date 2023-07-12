@@ -21,10 +21,12 @@ export class BankListComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.bankServive.getAllBanks().subscribe((data) => {
-      console.log(data); 
-      this.banks = data
-    })
+    this.bankServive.getAllBanks().subscribe(
+      (data) => {
+        console.log(data); 
+        this.banks = data
+      }
+    )
   }
 
   onSubmit(): void {

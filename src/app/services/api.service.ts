@@ -28,7 +28,7 @@ export class ApiService {
   }
 
   getAllBanks(): Observable<Bank[]> {
-    return this.http.get<Bank[]>(this._url + 'bank', this.getAuthHeader())
+    return this.http.get<Bank[]>(this._url + 'bank', {headers: { 'Authorization': 'Bearer ' + localStorage.getItem('token')} } )
   }
 
   getBankByName(name: string): Bank | undefined {
@@ -48,7 +48,7 @@ export class ApiService {
   }
 
   getCardsOfUser(): Observable<Card[]> {
-    return this.http.get<Bank[]>(this._url + "card" ,this.getAuthHeader())
+    return this.http.get<Card[]>(this._url + "card" ,this.getAuthHeader())
   }
 
 }
